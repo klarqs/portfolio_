@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:lots_/app/modules/transaction_details/views/widgets/transaction_details_card_tile.dart';
 import 'package:lots_/app/modules/transaction_history/models/transaction_history_model.dart';
 import 'package:lots_/app/utils/colors.dart';
 import 'package:lots_/app/utils/ui/animations/slide_in_animation.dart';
+import 'package:lots_/app/modules/transaction_history/controllers/transaction_history_controller.dart';
 
 import '../../../utils/assets.dart';
 import '../../../utils/ui/animations/fade_in_animations.dart';
 
 class TransactionDetails extends StatelessWidget {
-  final TransactionHistoryModel transactionHistoryDetails;
-  const TransactionDetails({Key? key, required this.transactionHistoryDetails})
+  final ClientTransaction? transactionHistoryDetails;
+  final String? status;
+  const TransactionDetails({Key? key, required this.transactionHistoryDetails, required this.status,})
       : super(key: key);
 
   final String pageTitle = 'Transaction details';
@@ -85,23 +88,24 @@ class TransactionDetails extends StatelessWidget {
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Recipient',
-                      value: transactionHistoryDetails.recipient,
+                      value: transactionHistoryDetails!.type.capitalize()
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Amount',
-                      value: transactionHistoryDetails.amount,
+                      value: '₦ ${transactionHistoryDetails!.amount.toString()}',
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Transaction date',
-                      value: transactionHistoryDetails.transactionDate,
+                      value: DateFormat.yMMMd()
+                          .format(DateTime.parse(transactionHistoryDetails!.entryDate)),
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Reference',
-                      value: transactionHistoryDetails.reference,
+                      value: transactionHistoryDetails!.transactionId.toString(),
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Status',
-                      value: transactionHistoryDetails.status,
+                      value: status.toString(),
                       isStatus: true,
                     ),
                   ],

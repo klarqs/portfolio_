@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:lots_/app/modules/transaction_details/views/transaction_details.dart';
 import 'package:lots_/app/modules/transaction_history/controllers/transaction_history_controller.dart';
 import 'package:lots_/app/modules/transaction_history/models/transaction_history_model.dart';
@@ -7,8 +8,6 @@ import 'package:lots_/app/modules/transaction_history/views/widgets/transaction_
 import 'package:lots_/app/utils/assets.dart';
 import 'package:lots_/app/utils/colors.dart';
 import 'package:lots_/app/utils/ui/animations/slide_in_animation.dart';
-import 'package:lots_/main.dart';
-
 import '../../../utils/ui/animations/fade_in_animations.dart';
 
 class TransactionHistory extends StatelessWidget {
@@ -21,7 +20,7 @@ class TransactionHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -34,7 +33,7 @@ class TransactionHistory extends StatelessWidget {
           IconButton(
             tooltip: 'Light Mode',
             splashRadius: 18,
-            onPressed: () => {},
+            onPressed: () => _transformationController.getTransactionHistory(),
             icon: SvgPicture.asset(
               Assets.lightIcon,
               height: 20,
@@ -71,34 +70,68 @@ class TransactionHistory extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Expanded(
-              child: ListView.builder(
-                itemCount:
-                    _transformationController.transactionHistories.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  TransactionHistoryModel i =
-                      _transformationController.transactionHistories[index];
-                  return GestureDetector(
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => TransactionDetails(
-                          transactionHistoryDetails: i,
+              child: FutureBuilder<TransactionHistoryModel>(
+                future: _transformationController.getTransactionHistory(),
+                builder: (context, snapshot) {
+                  switch (snapshot.connectionState) {
+                    case ConnectionState.waiting:
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 1,
+                          color: CustomColors.primaryColor,
                         ),
-                      ),
-                    ),
-                    child: FadeIn(
-                      duration: const Duration(milliseconds: 450),
-                      delay: const Duration(milliseconds: 1000),
-                      child: TransactionCard(
-                        icon: i.icon,
-                        recipient: i.recipient,
-                        transactionDate: i.transactionDate,
-                        amount: i.amount,
-                        transactionType: i.transactionType,
-                      ),
-                    ),
-                  );
+                      );
+                    case ConnectionState.done:
+                      if (snapshot.hasError) {
+                        return Text(snapshot.hasError.toString());
+                      } else {
+                        return ListView.builder(
+                          itemCount:
+                              snapshot.data?.data.clientTransactions.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            String? status = snapshot.data?.status;
+                            ClientTransaction? i =
+                                snapshot.data?.data.clientTransactions[index];
+                            return GestureDetector(
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TransactionDetails(
+                                    transactionHistoryDetails: i,
+                                    status: status,
+                                  ),
+                                ),
+                              ),
+                              child: FadeIn(
+                                duration: const Duration(milliseconds: 250),
+                                delay: const Duration(milliseconds: 400),
+                                child: TransactionCard(
+                                  icon: i!.type == "TRANSFER"
+                                      ? Assets.transferIcon
+                                      : i.type == "DEPOSIT"
+                                          ? Assets.receivedIcon
+                                          : Assets.transferIcon,
+                                  recipient: i.type.capitalize(),
+                                  transactionDate: DateFormat.yMMMd()
+                                      .format(DateTime.parse(i.entryDate)),
+                                  amount: i.amount,
+                                  transactionType: i.type,
+                                  comment: i.comment ?? '',
+                                  amountColor: i.type == "TRANSFER"
+                                      ? CustomColors.redColor
+                                      : i.type == "DEPOSIT"
+                                          ? CustomColors.greenColor
+                                          : CustomColors.redColor,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      }
+                    default:
+                      return const Text('Unhandled State');
+                  }
                 },
               ),
             ),

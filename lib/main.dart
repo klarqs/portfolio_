@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Transaction History',
-        darkTheme: ThemeData.dark().copyWith(
+        theme: ThemeData(
           primaryColorDark: Colors.orange,
           accentColor: CustomColors.primaryColor,
           primaryColor: Colors.black,

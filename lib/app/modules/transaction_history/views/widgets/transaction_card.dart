@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:lots_/app/utils/colors.dart';
 
 class TransactionCard extends StatelessWidget {
-  final String icon, recipient, transactionDate, amount, transactionType;
+  final String icon, recipient, transactionDate, transactionType, comment;
+  final double amount;
+  final Color amountColor;
 
-  const TransactionCard(
-      {Key? key,
-      required this.icon,
-      required this.recipient,
-      required this.transactionDate,
-      required this.amount,
-      required this.transactionType})
-      : super(key: key);
+  const TransactionCard({
+    Key? key,
+    required this.icon,
+    required this.recipient,
+    required this.transactionDate,
+    required this.amount,
+    required this.transactionType,
+    required this.amountColor,
+    required this.comment,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +45,19 @@ class TransactionCard extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text(
-                        transactionType == "Transfer"
-                            ? 'Money $transactionType to '
-                            : transactionType == "Received"
-                                ? 'Money $transactionType from '
-                                : 'Airtime Recharge ',
-                        style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.normal,
+                      SizedBox(
+                        width: comment == '' ? 0 : Get.width * .5,
+                        child: Text(
+                          comment == '' ? '' : "$comment ",
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.normal,
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       Text(
-                        transactionType == "Airtime" ? '' : recipient,
+                        comment == '' ? recipient : '',
                         style: const TextStyle(
                           fontSize: 13,
                           color: CustomColors.primaryColor,
@@ -74,11 +79,9 @@ class TransactionCard extends StatelessWidget {
             ],
           ),
           Text(
-            amount,
+            '₦ ${amount.toString()}',
             style: TextStyle(
-              color: transactionType == "Transfer"
-                  ? CustomColors.redColor
-                  : CustomColors.greenColor,
+              color: amountColor,
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
