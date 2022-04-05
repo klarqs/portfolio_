@@ -9,9 +9,11 @@ import 'package:lots_/app/utils/assets.dart';
 import 'package:lots_/app/utils/colors.dart';
 import 'package:lots_/app/utils/ui/animations/slide_in_animation.dart';
 import '../../../utils/ui/animations/fade_in_animations.dart';
+import '../../../utils/ui/theme_manager.dart';
 
 class TransactionHistory extends StatelessWidget {
-  TransactionHistory({Key? key}) : super(key: key);
+  final ThemeNotifier theme;
+  TransactionHistory({Key? key, required this.theme}) : super(key: key);
 
   final String pageTitle = 'All Transactions';
   final TransactionHistoryController _transformationController =
@@ -20,9 +22,9 @@ class TransactionHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        // backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
           splashRadius: 18,
@@ -33,7 +35,7 @@ class TransactionHistory extends StatelessWidget {
           IconButton(
             tooltip: 'Light Mode',
             splashRadius: 18,
-            onPressed: () => _transformationController.getTransactionHistory(),
+            onPressed: () => theme.setLightMode(),
             icon: SvgPicture.asset(
               Assets.lightIcon,
               height: 20,
@@ -42,7 +44,7 @@ class TransactionHistory extends StatelessWidget {
           IconButton(
             tooltip: 'Dark Mode',
             splashRadius: 18,
-            onPressed: () => {},
+            onPressed: () => theme.setDarkMode(),
             icon: SvgPicture.asset(Assets.darkIcon),
           ),
           const SizedBox(width: 8),

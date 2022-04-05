@@ -30,7 +30,6 @@ class TransactionCard extends StatelessWidget {
         vertical: 6.0,
       ),
       decoration: BoxDecoration(
-        color: CustomColors.accentColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: Row(
