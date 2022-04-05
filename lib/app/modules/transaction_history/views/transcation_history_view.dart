@@ -83,7 +83,12 @@ class TransactionHistory extends StatelessWidget {
                       );
                     case ConnectionState.done:
                       if (snapshot.hasError) {
-                        return Text(snapshot.hasError.toString());
+                        return Center(
+                          child: Text(
+                            'Has Error: ${snapshot.hasError.toString()}\nInvalid or Expired token',
+                            textAlign: TextAlign.center,
+                          ),
+                        );
                       } else {
                         return ListView.builder(
                           itemCount:
