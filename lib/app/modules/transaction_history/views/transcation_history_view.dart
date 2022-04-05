@@ -7,6 +7,7 @@ import 'package:lots_/app/modules/transaction_history/views/widgets/transaction_
 import 'package:lots_/app/utils/assets.dart';
 import 'package:lots_/app/utils/colors.dart';
 import 'package:lots_/app/utils/ui/animations/slide_in_animation.dart';
+import 'package:lots_/main.dart';
 
 import '../../../utils/ui/animations/fade_in_animations.dart';
 
@@ -20,7 +21,7 @@ class TransactionHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -29,6 +30,24 @@ class TransactionHistory extends StatelessWidget {
           onPressed: () => {},
           icon: SvgPicture.asset(Assets.backArrowIcon),
         ),
+        actions: [
+          IconButton(
+            tooltip: 'Light Mode',
+            splashRadius: 18,
+            onPressed: () => {},
+            icon: SvgPicture.asset(
+              Assets.lightIcon,
+              height: 20,
+            ),
+          ),
+          IconButton(
+            tooltip: 'Dark Mode',
+            splashRadius: 18,
+            onPressed: () => {},
+            icon: SvgPicture.asset(Assets.darkIcon),
+          ),
+          const SizedBox(width: 8),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -53,7 +72,8 @@ class TransactionHistory extends StatelessWidget {
             const SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
-                itemCount: _transformationController.transactionHistories.length,
+                itemCount:
+                    _transformationController.transactionHistories.length,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   TransactionHistoryModel i =
