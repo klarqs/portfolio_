@@ -9,10 +9,11 @@ Displays a list of transactions and displays details of each transaction on the 
 | Name | Version |
 |------|---------|
 | <a name="cupertino_icons"></a> [cupertino_icons](#dependencies\_cupertino_icons) | >= 1.0.2 |
-| <a name="flutter_svg"></a> [flutter_svg](#dependencies\_flutter_svg) | >= 3.64.0, < 4.0.0 |
-| <a name="google_fonts"></a> [google_fonts](#dependencies\_google_fonts) | >= 2.2 |
-| <a name="path_provider"></a> [path_provider](#dependencies\_path_provider) | >= 2.0.7|
-| <a name="http"></a> [http](##dependencies\_http) | >= 0.7 |
+| <a name="flutter_svg"></a> [flutter_svg](#dependencies\_flutter_svg) | >= 1.0.3 |
+| <a name="google_fonts"></a> [google_fonts](#dependencies\_google_fonts) | >= 2.3.1 |
+| <a name="http"></a> [http](##dependencies\_http) | >= 0.13.4 |
+| <a name="intl"></a> [google_fonts](#dependencies\_google_fonts) | >= 0.17.0 |
+| <a name="get"></a> [http](##dependencies\_http) | >= 4.6.1 |
 
 
 ### Installing
