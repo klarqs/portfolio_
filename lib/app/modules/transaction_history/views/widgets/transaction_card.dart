@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lots_/app/utils/colors.dart';
 
 class TransactionCard extends StatelessWidget {
@@ -49,7 +50,7 @@ class TransactionCard extends StatelessWidget {
                         width: comment == '' ? 0 : Get.width * .5,
                         child: Text(
                           comment == '' ? '' : "$comment ",
-                          style: const TextStyle(
+                          style: GoogleFonts.dmSans(
                             fontSize: 13,
                             fontWeight: FontWeight.normal,
                           ),
@@ -58,7 +59,7 @@ class TransactionCard extends StatelessWidget {
                       ),
                       Text(
                         comment == '' ? recipient : '',
-                        style: const TextStyle(
+                        style: GoogleFonts.dmSans(
                           fontSize: 13,
                           color: CustomColors.primaryColor,
                           fontWeight: FontWeight.bold,
@@ -69,7 +70,7 @@ class TransactionCard extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     transactionDate,
-                    style: const TextStyle(
+                    style: GoogleFonts.dmSans(
                       color: CustomColors.dark2Color,
                       fontSize: 11,
                     ),
@@ -80,7 +81,7 @@ class TransactionCard extends StatelessWidget {
           ),
           Text(
             '₦ ${amount.toString()}',
-            style: TextStyle(
+            style:GoogleFonts.dmSans(
               color: amountColor,
               fontSize: 14,
               fontWeight: FontWeight.bold,

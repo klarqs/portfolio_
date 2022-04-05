@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lots_/app/modules/transaction_details/views/transaction_details.dart';
 import 'package:lots_/app/modules/transaction_history/controllers/transaction_history_controller.dart';
@@ -63,7 +64,7 @@ class TransactionHistory extends StatelessWidget {
               distance: 0.2,
               child: Text(
                 pageTitle,
-                style: const TextStyle(
+                style: GoogleFonts.dmSans(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: CustomColors.primaryColor,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../utils/colors.dart';
 
@@ -22,7 +23,7 @@ class TransactionDetailsCardTile extends StatelessWidget {
         children: [
           Text(
             tileKey,
-            style: const TextStyle(
+            style: GoogleFonts.dmSans(
               color: CustomColors.darkColor,
               fontSize: 14,
               fontWeight: FontWeight.normal,
@@ -40,7 +41,7 @@ class TransactionDetailsCardTile extends StatelessWidget {
                     ),
                     Text(
                       value,
-                      style: const TextStyle(
+                      style: GoogleFonts.dmSans(
                         color: CustomColors.greenColor,
                         fontSize: 15,
                         letterSpacing: .4,
@@ -51,7 +52,7 @@ class TransactionDetailsCardTile extends StatelessWidget {
                 )
               : Text(
                   value,
-                  style: const TextStyle(
+                  style: GoogleFonts.dmSans(
                     color: CustomColors.darkColor,
                     fontSize: 15,
                     letterSpacing: .4,

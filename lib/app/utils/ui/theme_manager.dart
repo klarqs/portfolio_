@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lots_/app/utils/colors.dart';
 import 'package:lots_/app/utils/ui/storage_manager.dart';
 
@@ -9,15 +8,12 @@ class ThemeNotifier with ChangeNotifier {
     primarySwatch: Colors.grey,
     primaryColor: CustomColors.primaryColor,
     brightness: Brightness.dark,
-    appBarTheme: const AppBarTheme(color: Color(0xFF212121), iconTheme: IconThemeData(
-      color: Colors.white,
-    ),),
+    appBarTheme: const AppBarTheme(
+      color: Color(0xFF212121),
+    ),
     backgroundColor: const Color(0xFF212121),
     scaffoldBackgroundColor: const Color(0xFF212121),
     accentColor: Colors.white,
-    // textTheme: GoogleFonts.dmSansTextTheme(
-    // Theme.of(context).textTheme,
-    // ),
     accentIconTheme: const IconThemeData(color: Colors.black),
     dividerColor: Colors.black12,
   );
@@ -34,9 +30,6 @@ class ThemeNotifier with ChangeNotifier {
       color: CustomColors.accentColor,
     ),
     dialogBackgroundColor: CustomColors.accentColor,
-    // textTheme: GoogleFonts.dmSansTextTheme(
-    // Theme.of(context).textTheme,
-    // ),
     appBarTheme: const AppBarTheme(color: Colors.white),
     accentColor: Colors.black,
     accentIconTheme: const IconThemeData(color: Colors.white),

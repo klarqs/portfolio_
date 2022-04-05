@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:lots_/app/modules/transaction_details/views/widgets/transaction_details_card_tile.dart';
 import 'package:lots_/app/modules/transaction_history/models/transaction_history_model.dart';
@@ -51,7 +52,7 @@ class TransactionDetails extends StatelessWidget {
               distance: 0.2,
               child: Text(
                 pageTitle,
-                style: const TextStyle(
+                style: GoogleFonts.dmSans(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -80,7 +81,7 @@ class TransactionDetails extends StatelessWidget {
                   children: [
                     Text(
                       subTitle,
-                      style: const TextStyle(
+                      style: GoogleFonts.dmSans(
                         color: CustomColors.primaryColor,
                         fontSize: 14,
                         fontWeight: FontWeight.normal,
