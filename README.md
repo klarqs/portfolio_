@@ -2,7 +2,6 @@
 
 Displays a list of transactions and displays details of each transaction on the next screen.
 
-## Getting Started
 
 ### Dependencies
 
