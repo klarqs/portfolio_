@@ -43,7 +43,26 @@ class ThemeNotifier with ChangeNotifier {
     dividerColor: Colors.white54,
   );
 
-  late ThemeData _themeData;
+  ThemeData _themeData = ThemeData(
+    primarySwatch: Colors.grey,
+    primaryColor: Colors.white,
+    brightness: Brightness.light,
+    scaffoldBackgroundColor: Colors.white,
+    backgroundColor: CustomColors.accentColor,
+    cardColor: CustomColors.accentColor,
+    canvasColor: CustomColors.accentColor,
+    cardTheme: const CardTheme(
+      color: CustomColors.accentColor,
+    ),
+    dialogBackgroundColor: CustomColors.accentColor,
+    // textTheme: GoogleFonts.dmSansTextTheme(
+    // Theme.of(context).textTheme,
+    // ),
+    appBarTheme: const AppBarTheme(color: Colors.white),
+    accentColor: Colors.black,
+    accentIconTheme: const IconThemeData(color: Colors.white),
+    dividerColor: Colors.white54,
+  );
   ThemeData getTheme() => _themeData;
 
   ThemeNotifier() {

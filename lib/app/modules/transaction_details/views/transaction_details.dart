@@ -13,8 +13,11 @@ import '../../../utils/ui/animations/fade_in_animations.dart';
 class TransactionDetails extends StatelessWidget {
   final ClientTransaction? transactionHistoryDetails;
   final String? status;
-  const TransactionDetails({Key? key, required this.transactionHistoryDetails, required this.status,})
-      : super(key: key);
+  const TransactionDetails({
+    Key? key,
+    required this.transactionHistoryDetails,
+    required this.status,
+  }) : super(key: key);
 
   final String pageTitle = 'Transaction details';
   final String subTitle = 'Detailed summary of transaction';
@@ -87,21 +90,22 @@ class TransactionDetails extends StatelessWidget {
                       height: 8,
                     ),
                     TransactionDetailsCardTile(
-                      tileKey: 'Recipient',
-                      value: transactionHistoryDetails!.type.capitalize()
-                    ),
+                        tileKey: 'Recipient',
+                        value: transactionHistoryDetails!.type.capitalize()),
                     TransactionDetailsCardTile(
                       tileKey: 'Amount',
-                      value: '₦ ${transactionHistoryDetails!.amount.toString()}',
+                      value:
+                          '₦ ${transactionHistoryDetails!.amount.toString()}',
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Transaction date',
-                      value: DateFormat.yMMMd()
-                          .format(DateTime.parse(transactionHistoryDetails!.entryDate)),
+                      value: DateFormat.yMMMd().format(
+                          DateTime.parse(transactionHistoryDetails!.entryDate)),
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Reference',
-                      value: transactionHistoryDetails!.transactionId.toString(),
+                      value:
+                          transactionHistoryDetails!.transactionId.toString(),
                     ),
                     TransactionDetailsCardTile(
                       tileKey: 'Status',
