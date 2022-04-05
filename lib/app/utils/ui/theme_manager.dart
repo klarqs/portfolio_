@@ -55,9 +55,6 @@ class ThemeNotifier with ChangeNotifier {
       color: CustomColors.accentColor,
     ),
     dialogBackgroundColor: CustomColors.accentColor,
-    // textTheme: GoogleFonts.dmSansTextTheme(
-    // Theme.of(context).textTheme,
-    // ),
     appBarTheme: const AppBarTheme(color: Colors.white),
     accentColor: Colors.black,
     accentIconTheme: const IconThemeData(color: Colors.white),

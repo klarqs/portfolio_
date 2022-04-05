@@ -31,6 +31,7 @@ class TransactionCard extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
+        color: CustomColors.primaryColor.withOpacity(.05),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
