@@ -15,7 +15,8 @@ class TransactionHistoryController extends GetxController {
 
   final String uri =
       'https://api-sandbox.renmoney.com/deposit-transfer/api/v3/investment/3580016662/transactions';
-  final String token = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMzQ4OTkzOTQ5NjMzIiwiaWF0IjoxNjQ5MjUwOTYxLCJleHAiOjE2NDkzMzczNjF9.hlPxEFv0vtwXgVODiaVcmtw_-BTx-IjEDkoIqP1_IPcNZ3OcDc-HY59bawhJosCPxINH36TskLegfv0gc9q1VQ';
+  final String token =
+      'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMzQ4OTkzOTQ5NjMzIiwiaWF0IjoxNjQ5MjUwOTYxLCJleHAiOjE2NDkzMzczNjF9.hlPxEFv0vtwXgVODiaVcmtw_-BTx-IjEDkoIqP1_IPcNZ3OcDc-HY59bawhJosCPxINH36TskLegfv0gc9q1VQ';
   final String sourceAppId = 'ckpu7zo0p0000gg5436coo7xs';
 
   // To get transaction history

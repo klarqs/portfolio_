@@ -7,5 +7,7 @@ class CustomColors {
       dark2Color = Color(0xff707070),
       redColor = Color(0xffE47673),
       greenColor = Color(0xff65C4AD),
-      darkPurple = Color(0xff6C648E);
+      darkPurple = Color(0xff6C648E),
+      primaryYellow = Color(0xffF9C829),
+      grayColor = Color(0xff535353);
 }

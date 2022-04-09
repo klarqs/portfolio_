@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lots_/app/modules/transaction_history/views/transcation_history_view.dart';
 import 'package:provider/provider.dart';
 
+import 'app/modules/login/views/login_view.dart';
 import 'app/utils/ui/theme_manager.dart';
 
 void main() {
@@ -22,9 +23,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Transaction History',
         theme: theme.getTheme(),
-        home: TransactionHistory(
-          theme: theme,
-        ),
+        // home: TransactionHistory(
+        //   theme: theme,
+        // ),
+        home: LoginView(),
       ),
     );
   }

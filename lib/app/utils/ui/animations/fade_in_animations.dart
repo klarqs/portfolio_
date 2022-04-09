@@ -20,8 +20,8 @@ class FadeIn extends StatefulWidget {
       : super(key: key) {
     if (manualTrigger == true && controller == null) {
       throw FlutterError('If you want to use manualTrigger:true, \n\n'
-          'Then you must provide the controller property, that is a callback like:\n\n'
-          ' ( controller: AnimationController) => yourController = controller \n\n');
+          'Then you must provide the controllers property, that is a callback like:\n\n'
+          ' ( controllers: AnimationController) => yourController = controllers \n\n');
     }
   }
 
