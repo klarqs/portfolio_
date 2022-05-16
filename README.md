@@ -9,3 +9,4 @@ A flutter web application.
 - google_fonts: ^2.3.1
 - get: ^4.6.1
 - url_launcher: ^6.1.2
+- animate_do: ^2.1.0
