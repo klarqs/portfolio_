@@ -201,7 +201,7 @@ class HomeView extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
@@ -261,20 +261,22 @@ class HomeView extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: Get.width * .04,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            radius: 50,
-                            onTap: controller._launchResume,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: SvgPicture.asset(
-                                'assets/svgs/moon.svg',
-                              ),
-                            ),
-                          ),
+                          // SizedBox(
+                          //   width: Get.width * .04,
+                          // ),
+                          // InkWell(
+                          //   borderRadius: BorderRadius.circular(12),
+                          //   radius: 50,
+                          //   // onTap: controller._launchResume,
+                          //   child: Padding(
+                          //     padding: const EdgeInsets.all(8.0),
+                          //     child: SvgPicture.asset(
+                          //       'assets/svgs/moon.svg',
+                          //       color: Colors.white,
+                          //       height: 28,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
