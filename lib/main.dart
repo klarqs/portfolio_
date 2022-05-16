@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -53,62 +54,66 @@ class HomeView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          controller.name.value,
-                          style: GoogleFonts.comforterBrush(
-                            fontSize: Get.width * .024,
-                            fontWeight: FontWeight.w100,
-                            letterSpacing: .2,
-                            color: Colors.orange.shade100,
-                            height: Get.width * .00024,
+                        FadeIn(
+                          child: Text(
+                            controller.name.value,
+                            style: GoogleFonts.comforterBrush(
+                              fontSize: Get.width * .024,
+                              fontWeight: FontWeight.w100,
+                              letterSpacing: .2,
+                              color: Colors.orange.shade100,
+                              height: Get.width * .00024,
+                            ),
                           ),
                         ),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: 'This is me. A Product-oriented ',
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .035,
-                                  color: Colors.white54,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: .2,
-                                  height: 1.05,
+                        FadeIn(
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'This is me. A Product-oriented ',
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: Get.width * .035,
+                                    color: Colors.white54,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: .2,
+                                    height: 1.05,
+                                  ),
                                 ),
-                              ),
-                              TextSpan(
-                                text: 'Mobile Engineer ',
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .035,
-                                  color: Colors.white.withOpacity(.8),
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: .2,
-                                  height: 1.05,
+                                TextSpan(
+                                  text: 'Mobile Engineer ',
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: Get.width * .035,
+                                    color: Colors.white.withOpacity(.8),
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: .2,
+                                    height: 1.05,
+                                  ),
                                 ),
-                              ),
-                              TextSpan(
-                                text:
-                                    'with 4+ years of experience working in a variety of ',
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .035,
-                                  color: Colors.white54,
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: .2,
-                                  height: 1.05,
+                                TextSpan(
+                                  text:
+                                      'with 4+ years of experience working in a variety of ',
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: Get.width * .035,
+                                    color: Colors.white54,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: .2,
+                                    height: 1.05,
+                                  ),
                                 ),
-                              ),
-                              TextSpan(
-                                text:
-                                    'fast-paced, dynamic, and adaptable settings.',
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .035,
-                                  color: Colors.white.withOpacity(.8),
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: .2,
-                                  height: 1.05,
+                                TextSpan(
+                                  text:
+                                      'fast-paced, dynamic, and adaptable settings.',
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: Get.width * .035,
+                                    color: Colors.white.withOpacity(.8),
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: .2,
+                                    height: 1.05,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                         Column(
