@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'kola.dart',
+      title: 'kola.dev',
       theme: ThemeData.dark(),
       home: HomeView(),
     );
@@ -27,269 +27,357 @@ class MyApp extends StatelessWidget {
 class HomeView extends StatelessWidget {
   HomeView({Key? key}) : super(key: key);
   final HomeViewController controller = Get.put(HomeViewController());
+
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Obx(
       () => Scaffold(
-        body: Stack(
-          children: [
-            Positioned.fill(
-              child: IgnorePointer(
-                child: Image.network(
-                  controller.backgroundImage.value,
-                  fit: BoxFit.cover,
-                  opacity: const AlwaysStoppedAnimation(.35),
+        body: SizedBox.expand(
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: IgnorePointer(
+                  child: Image.network(
+                    controller.backgroundImage.value,
+                    fit: BoxFit.cover,
+                    height: double.infinity,
+                    width: double.infinity,
+                    opacity: const AlwaysStoppedAnimation(.35),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: Get.width * .045, vertical: Get.height * .124),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    flex: 7,
-                    child: Column(
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenSize.width * .045,
+                  vertical: screenSize.height * .124,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         FadeIn(
                           child: Text(
                             controller.name.value,
                             style: GoogleFonts.comforterBrush(
-                              fontSize: Get.width * .024,
+                              fontSize: screenSize.width < 700
+                                  ? screenSize.width * .04
+                                  : screenSize.width < 1300
+                                      ? screenSize.width * .032
+                                      : screenSize.width * .024,
                               fontWeight: FontWeight.w100,
                               letterSpacing: .2,
                               color: Colors.orange.shade100,
-                              height: Get.width * .00024,
+                              height: screenSize.width * .00024,
                             ),
                           ),
                         ),
-                        FadeIn(
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'This is me. A Product-oriented ',
-                                  style: GoogleFonts.dmSans(
-                                    fontSize: Get.width * .035,
-                                    color: Colors.white54,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: .2,
-                                    height: 1.05,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: 'Mobile Engineer ',
-                                  style: GoogleFonts.dmSans(
-                                    fontSize: Get.width * .035,
-                                    color: Colors.white.withOpacity(.8),
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: .2,
-                                    height: 1.05,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      'with 4+ years of experience working in a variety of ',
-                                  style: GoogleFonts.dmSans(
-                                    fontSize: Get.width * .035,
-                                    color: Colors.white54,
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: .2,
-                                    height: 1.05,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      'fast-paced, dynamic, and adaptable settings.',
-                                  style: GoogleFonts.dmSans(
-                                    fontSize: Get.width * .035,
-                                    color: Colors.white.withOpacity(.8),
-                                    fontWeight: FontWeight.bold,
-                                    letterSpacing: .2,
-                                    height: 1.05,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Column(
+                        Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  borderRadius: BorderRadius.circular(12),
-                                  radius: 50,
-                                  onTap: controller._launchGithub,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      controller.githubAsset.value,
-                                      color: Colors.white60,
-                                      width: Get.width * .018,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: Get.width * .018,
-                                ),
-                                InkWell(
-                                  borderRadius: BorderRadius.circular(12),
-                                  radius: 50,
-                                  onTap: controller._launchDribbble,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      controller.dribbbleAsset.value,
-                                      color: Colors.white60,
-                                      width: Get.width * .018,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: Get.width * .018,
-                                ),
-                                InkWell(
-                                  borderRadius: BorderRadius.circular(12),
-                                  radius: 50,
-                                  onTap: controller._launchTwitter,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      controller.twitterAsset.value,
-                                      color: Colors.white60,
-                                      width: Get.width * .018,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: Get.width * .018,
-                                ),
-                                InkWell(
-                                  borderRadius: BorderRadius.circular(12),
-                                  radius: 50,
-                                  onTap: controller._launchLinkedin,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: SvgPicture.asset(
-                                      controller.linkedinAsset.value,
-                                      color: Colors.white60,
-                                      width: Get.width * .018,
-                                    ),
-                                  ),
-                                ),
-                              ],
+                            SizedBox(
+                              width: screenSize.width * .04,
                             ),
-                            SizedBox(height: Get.height * .0195),
-                            Text(
-                              '© 2022 Fluttering Around, Inc.',
-                              style: GoogleFonts.dmSans(
-                                fontSize: Get.width * .0092,
-                                fontWeight: FontWeight.w300,
-                                letterSpacing: .2,
-                                color: Colors.white30,
-                                height: 1.1,
+                            InkWell(
+                              borderRadius: BorderRadius.circular(12),
+                              radius: 50,
+                              splashColor: Colors.transparent,
+                              onTap: controller._launchTwitter,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  controller.contact.value,
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: screenSize.width < 700
+                                        ? screenSize.width * .028
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .016
+                                            : screenSize.width * .01,
+                                    fontWeight: FontWeight.normal,
+                                    letterSpacing: .2,
+                                    height: 1.25,
+                                  ),
+                                ),
                               ),
                             ),
+                            SizedBox(
+                              width: screenSize.width * .04,
+                            ),
+                            InkWell(
+                              borderRadius: BorderRadius.circular(12),
+                              radius: 50,
+                              splashColor: Colors.transparent,
+                              onTap: controller._launchResume,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  controller.resume.value,
+                                  style: GoogleFonts.dmSans(
+                                    fontSize: screenSize.width < 700
+                                        ? screenSize.width * .028
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .016
+                                            : screenSize.width * .01,
+                                    fontWeight: FontWeight.normal,
+                                    letterSpacing: .2,
+                                    height: 1.25,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            // SizedBox(
+                            //   width: screenSize.width * .04,
+                            // ),
+                            // InkWell(
+                            //   borderRadius: BorderRadius.circular(12),
+                            //   radius: 50,
+                            //   // onTap: controller._launchResume,
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.all(8.0),
+                            //     child: SvgPicture.asset(
+                            //       'assets/svgs/moon.svg',
+                            //       color: Colors.white,
+                            //       height: 28,
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ],
                     ),
-                  ),
-                  Expanded(
-                    flex: 6,
-                    child: Align(
-                      alignment: Alignment.topRight,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            radius: 50,
-                            onTap: () {},
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Portfolio',
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .01,
-                                  fontWeight: FontWeight.normal,
-                                  letterSpacing: .2,
-                                  height: 1.25,
-                                ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: FadeIn(
+                            child: RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'This is me. A Product-oriented ',
+                                    style: GoogleFonts.dmSans(
+                                      fontSize: screenSize.width < 700
+                                          ? screenSize.width * .052
+                                          : screenSize.width < 1300
+                                              ? screenSize.width * .040
+                                              : screenSize.width * .034,
+                                      color: Colors.white54,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: .2,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Mobile Engineer ',
+                                    style: GoogleFonts.dmSans(
+                                      fontSize: screenSize.width < 700
+                                          ? screenSize.width * .052
+                                          : screenSize.width < 1300
+                                              ? screenSize.width * .040
+                                              : screenSize.width * .035,
+                                      color: Colors.white.withOpacity(.8),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: .2,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        'with 4+ years of experience working in a variety of ',
+                                    style: GoogleFonts.dmSans(
+                                      fontSize: screenSize.width < 700
+                                          ? screenSize.width * .052
+                                          : screenSize.width < 1300
+                                              ? screenSize.width * .040
+                                              : screenSize.width * .035,
+                                      color: Colors.white54,
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: .2,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        'fast-paced, dynamic, and adaptable settings.',
+                                    style: GoogleFonts.dmSans(
+                                      fontSize: screenSize.width < 700
+                                          ? screenSize.width * .052
+                                          : screenSize.width < 1300
+                                              ? screenSize.width * .040
+                                              : screenSize.width * .035,
+                                      color: Colors.white.withOpacity(.8),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: .2,
+                                      height: 1.2,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: Get.width * .04,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            radius: 50,
-                            onTap: controller._launchTwitter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                controller.contact.value,
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .01,
-                                  fontWeight: FontWeight.normal,
-                                  letterSpacing: .2,
-                                  height: 1.25,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            width: Get.width * .04,
-                          ),
-                          InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            radius: 50,
-                            onTap: controller._launchResume,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                controller.resume.value,
-                                style: GoogleFonts.dmSans(
-                                  fontSize: Get.width * .01,
-                                  fontWeight: FontWeight.normal,
-                                  letterSpacing: .2,
-                                  height: 1.25,
-                                ),
-                              ),
-                            ),
-                          ),
-                          // SizedBox(
-                          //   width: Get.width * .04,
-                          // ),
-                          // InkWell(
-                          //   borderRadius: BorderRadius.circular(12),
-                          //   radius: 50,
-                          //   // onTap: controller._launchResume,
-                          //   child: Padding(
-                          //     padding: const EdgeInsets.all(8.0),
-                          //     child: SvgPicture.asset(
-                          //       'assets/svgs/moon.svg',
-                          //       color: Colors.white,
-                          //       height: 28,
-                          //     ),
-                          //   ),
-                          // ),
-                        ],
-                      ),
+                        ),
+                        Expanded(
+                          flex: screenSize.width < 700
+                              ? 0
+                              : screenSize.width < 1300
+                                  ? 1
+                                  : 2,
+                          child: const SizedBox(),
+                        ),
+                      ],
                     ),
-                  ),
-                ],
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white.withOpacity(.04),
+                              ),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(12),
+                                radius: 50,
+                                splashColor: Colors.transparent,
+                                onTap: controller._launchGithub,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    controller.githubAsset.value,
+                                    color: Colors.white60,
+                                    width: screenSize.width < 700
+                                        ? screenSize.width * .036
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .024
+                                            : screenSize.width * .018,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenSize.width < 700
+                                  ? screenSize.width * .036
+                                  : screenSize.width < 1300
+                                      ? screenSize.width * .024
+                                      : screenSize.width * .018,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white.withOpacity(.04),
+                              ),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(12),
+                                radius: 50,
+                                splashColor: Colors.transparent,
+                                onTap: controller._launchDribbble,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    controller.dribbbleAsset.value,
+                                    color: Colors.white60,
+                                    width: screenSize.width < 700
+                                        ? screenSize.width * .036
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .024
+                                            : screenSize.width * .018,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenSize.width < 700
+                                  ? screenSize.width * .036
+                                  : screenSize.width < 1300
+                                      ? screenSize.width * .024
+                                      : screenSize.width * .018,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white.withOpacity(.04),
+                              ),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(12),
+                                radius: 50,
+                                splashColor: Colors.transparent,
+                                onTap: controller._launchTwitter,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    controller.twitterAsset.value,
+                                    color: Colors.white60,
+                                    width: screenSize.width < 700
+                                        ? screenSize.width * .036
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .024
+                                            : screenSize.width * .018,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: screenSize.width < 700
+                                  ? screenSize.width * .036
+                                  : screenSize.width < 1300
+                                      ? screenSize.width * .024
+                                      : screenSize.width * .018,
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.white.withOpacity(.04),
+                              ),
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(12),
+                                radius: 50,
+                                splashColor: Colors.transparent,
+                                onTap: controller._launchLinkedin,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: SvgPicture.asset(
+                                    controller.linkedinAsset.value,
+                                    color: Colors.white60,
+                                    width: screenSize.width < 700
+                                        ? screenSize.width * .036
+                                        : screenSize.width < 1300
+                                            ? screenSize.width * .024
+                                            : screenSize.width * .018,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: screenSize.height * .02),
+                        Text(
+                          '© 2022 Fluttering Around, Inc.',
+                          style: GoogleFonts.dmSans(
+                            fontSize: screenSize.width < 700
+                                ? screenSize.width * .018
+                                : screenSize.width < 1300
+                                    ? screenSize.width * .012
+                                    : screenSize.width * .0092,
+                            fontWeight: FontWeight.w300,
+                            letterSpacing: .2,
+                            color: Colors.white30,
+                            height: 1.1,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
