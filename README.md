@@ -1,8 +1,6 @@
-# portfolio_
+# portfolio_ - _kola.dev_
 
 A flutter web application. 
-
-## kola.dev
 
 
 #### Dependencies
