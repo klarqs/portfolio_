@@ -127,9 +127,22 @@ class HomeView extends StatelessWidget {
                               ),
                             ),
                            
-                            
-                            
-                            
+                            // SizedBox(
+                            //   width: screenSize.width * .04,
+                            // ),
+                            // InkWell(
+                            //   borderRadius: BorderRadius.circular(12),
+                            //   radius: 50,
+                            //   // onTap: controller._launchResume,
+                            //   child: Padding(
+                            //     padding: const EdgeInsets.all(8.0),
+                            //     child: SvgPicture.asset(
+                            //       'assets/svgs/moon.svg',
+                            //       color: Colors.white,
+                            //       height: 28,
+                            //     ),
+                            //   ),
+                            // ),
                             
                           ],
                         ),
