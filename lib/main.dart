@@ -427,3 +427,4 @@ class HomeViewController extends GetxController {
     if (!await launchUrl(_resume)) throw 'Could not launch $_resume';
   }
 }
+
