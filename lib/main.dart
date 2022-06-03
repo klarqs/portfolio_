@@ -6,9 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
-  return runApp(
-    const MyApp(),
-  );
+  return runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
