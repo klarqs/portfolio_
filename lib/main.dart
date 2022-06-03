@@ -17,8 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'kola.dev',
       theme: ThemeData.dark(),
-      home: HomeView(),
-    );
+      home: HomeView());
   }
 }
 
