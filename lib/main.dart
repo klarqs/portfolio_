@@ -40,8 +40,7 @@ class HomeView extends StatelessWidget {
                     fit: BoxFit.cover,
                     height: double.infinity,
                     width: double.infinity,
-                    opacity: const AlwaysStoppedAnimation(.35),
-                  ),
+                    opacity: const AlwaysStoppedAnimation(.35)),
                 ),
               ),
               Padding(
